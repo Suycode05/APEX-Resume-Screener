@@ -11,11 +11,17 @@ from graph import execute_screener
 
 app = FastAPI(title="APEX Resume Screener Backend")
 
-# Enable CORS for React frontend (standard ports 5173, 5174)
+# Enable CORS dynamically (supports wildcards safely by disabling credentials if "*" is present)
+allowed_origins_raw = os.environ.get("ALLOWED_ORIGINS", "*")
+allowed_origins = [o.strip() for o in allowed_origins_raw.split(",") if o.strip()]
+
+# If wildcard is in the allowed list, credentials must be disabled to satisfy CORS specifications
+use_credentials = False if "*" in allowed_origins else True
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:5174", "*"],
-    allow_credentials=True,
+    allow_origins=allowed_origins,
+    allow_credentials=use_credentials,
     allow_methods=["*"],
     allow_headers=["*"],
 )
