@@ -5,7 +5,7 @@ APEX Resume Screener is a premium, stateful AI agent web application designed to
 ---
 
 ## 🚀 Live Demo & Deployment
-* **Live Deployment Link**: 🌐 **[Click here to view the live website](https://your-deployed-url-here.com)** *(Please replace this placeholder with your deployed URL after hosting)*
+* **Live Deployment Link**: 🌐 **[Click here to view the live website](https://apex-resume-screener.vercel.app)** *(Please replace this placeholder with your deployed URL after hosting)*
 * **FastAPI Backend Host (Local)**: `http://localhost:8008`
 * **Vite React Dashboard (Local)**: `http://localhost:5174`
 
