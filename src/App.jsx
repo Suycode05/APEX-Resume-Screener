@@ -21,7 +21,7 @@ import {
   ListTodo
 } from 'lucide-react';
 
-const API_BASE = "http://localhost:8008/api";
+const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:8008/api";
 
 export default function App() {
   const [candidatesList, setCandidatesList] = useState([]);

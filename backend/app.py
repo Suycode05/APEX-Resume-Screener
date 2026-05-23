@@ -161,6 +161,11 @@ def save_db(data: List[dict]):
 
 # API ENDPOINTS
 
+@app.get("/")
+@app.get("/api")
+async def health_check():
+    return {"status": "online", "message": "APEX Resume Screener API is running"}
+
 @app.post("/api/screen")
 async def screen_candidate(file: UploadFile = File(...)):
     filename = file.filename
